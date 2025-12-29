@@ -1,17 +1,45 @@
-# Welcome to MkDocs
+# Anime Music Collection
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Esta es una colección de playlists (una por serie).  
+Usa el buscador (lupa) para encontrar rápido una serie.
 
-## Commands
+## Empezar aquí: Anime Gems
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+=== "Spotify"
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/playlist/26faWsnq9PEzpOImFqkUbz"
+      width="100%" height="352" frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"></iframe>
 
-## Project layout
+    [▶ Abrir en Spotify](https://open.spotify.com/playlist/26faWsnq9PEzpOImFqkUbz)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+=== "YouTube"
+    *(pendiente: añade el link de YouTube a esta playlist)*
+
+## Series (A–Z)
+
+Ve a **Series** en el menú, o entra directo a una letra:
+
+- [0-9](series/0-9/)
+- [A](series/A/)
+- [B](series/B/)
+- [C](series/C/)
+- [D](series/D/)
+- [E](series/E/)
+- [F](series/F/)
+- [G](series/G/)
+- [H](series/H/)
+- [J](series/J/)
+- [K](series/K/)
+- [L](series/L/)
+- [M](series/M/)
+- [N](series/N/)
+- [O](series/O/)
+- [P](series/P/)
+- [R](series/R/)
+- [S](series/S/)
+- [T](series/T/)
+- [U](series/U/)
+- [V](series/V/)
+- [W](series/W/)

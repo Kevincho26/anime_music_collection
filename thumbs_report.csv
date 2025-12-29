@@ -1,0 +1,88 @@
+﻿titulo,spotify_url,thumb_file,match
+86: Eighty Six,https://open.spotify.com/playlist/38ecDVfgFhYCh9vauJNwGp,86.jpg,numeric_prefix
+Ahiru no Sora,https://open.spotify.com/playlist/0vK7o8T8mG4Y9n1ChECXza,Ahiru no Sora.jpg,exact_norm
+Akame ga Kill,https://open.spotify.com/playlist/0PQaPZdehXQroU5FgDBThj,Akame ga Kill.jpg,exact_norm
+Ao Ashi,https://open.spotify.com/playlist/4Q2mzQo3PDgSq5HXDsV2kd,Ao Ashi.jpg,exact_norm
+Ao no Exorcist,https://open.spotify.com/playlist/2As2Dr4q0iQzhbx6utZWbJ,Ao no Exorcist.jpg,exact_norm
+Baki,https://open.spotify.com/playlist/7xADEuSkbrEFIzbz3xOFVE,Baki.jpg,exact_norm
+Banana Fish,https://open.spotify.com/playlist/0zJf2SqYj4ZUkWBzy7iUbL,Banana Fish.jpg,exact_norm
+Black Butler,https://open.spotify.com/playlist/6EbE10ejtHtJwONbdZwCX4,Black Butler.jpg,exact_norm
+Black Clover,https://open.spotify.com/playlist/3KuvokuxoMO60wewY0AU8p,Black Clover.jpg,exact_norm
+Bleach,https://open.spotify.com/playlist/0KNSELX9yauK6lv27xllVR,Bleach.jpg,exact_norm
+Blue Box,https://open.spotify.com/playlist/3Ysa1AoO90efA8Lo4eTljz,Blue Box.jpg,exact_norm
+Blue Lock,https://open.spotify.com/playlist/366pIMkoSJzG7MXn5NKXqq,Blue Lock.jpg,exact_norm
+Bocchi the Rock,https://open.spotify.com/playlist/53oIBHiZKYOPcboKsJtgbX,Bochi the Rock!.jpg,fuzzy_jaccard_0.50
+Boku no Hero Academia,https://open.spotify.com/playlist/7AVUmaysWTGhaNcxSdEaus,Boku no Hero Academia.jpg,exact_norm
+Boruto,https://open.spotify.com/playlist/6BIHD77iITKPM93gdtxGMV,Boruto.jpg,exact_norm
+Bungo Stray Dogs,https://open.spotify.com/playlist/1unbU5nC8dTX2egxn84SXa,Bungou Stray Dogs.jpg,fuzzy_jaccard_0.50
+Call of the Night,https://open.spotify.com/playlist/6pHcq1C62Eg6qVrC6UqX6Z,Call of the Night.jpg,exact_norm
+Chainsaw Man,https://open.spotify.com/playlist/1coAMjR5WNcObOjRfr7pAE,Chainsawman.jpg,exact_collapse
+Code Geass,https://open.spotify.com/playlist/4twwR9yEgNQNUiWe2qOyMy,Code Geass.jpg,exact_norm
+Cowboy Bebop,https://open.spotify.com/playlist/4X2vkkENH2iu2fcncdAucD,Cowboy Bebop.jpg,exact_norm
+Dandadan,https://open.spotify.com/playlist/5m4FzcBEIANeNH3J4ho6Nd,Dandadan.jpg,exact_norm
+Darker Than Black,https://open.spotify.com/playlist/1mHaM6BaTrcfsxXPgMtMSa,Darker than black.jpg,exact_norm
+Death Note,https://open.spotify.com/playlist/0sIT4BLPHzbYgLldkpyzRQ,Death Note.jpg,exact_norm
+Diamond no Ace,https://open.spotify.com/playlist/69uo2UnmrH6E0TGhlCTwSS,Diamond no Ace.jpg,exact_norm
+Dr. Stone,https://open.spotify.com/playlist/5LP5wBwib2uYK19NF8ySGt,Dr. Stone.jpg,exact_norm
+Durarara!!,https://open.spotify.com/playlist/4dEF66NZ6pkZeSVWqpSE9L,Durarara!!.jpg,exact_norm
+Erased,https://open.spotify.com/playlist/0PJRVmTJUB4Sj4n7iXIhJs,Erased.jpg,exact_norm
+Eureka Seven,https://open.spotify.com/playlist/00cDgg8oV0Mq3HYYQrcl6G,Eureka Seven.jpg,exact_norm
+FMA,https://open.spotify.com/playlist/7shfzMICWjJXpwu2Zc8B0i,FMA.jpg,exact_norm
+FMAB,https://open.spotify.com/playlist/75Slj8hhLY6kPKXtKiBU9G,FMAB.jpg,exact_norm
+Fairy Tail,https://open.spotify.com/playlist/3s6ydMwbXJHH8nTMQMoYYM,Fairy Tail.jpg,exact_norm
+Fate/stay night: Unlimited Blade Works,https://open.spotify.com/playlist/5mXUXhuPlR2kU2KjXmQ4yS,Fate Stay Night.jpg,fuzzy_jaccard_0.50
+Fire Force,https://open.spotify.com/playlist/7n4N5KmQM3fy725UJdzZS6,Fire Force.jpg,exact_norm
+Frieren,https://open.spotify.com/playlist/0RJ0NKDwr05AkSKRdEtgds,Frieren.jpg,exact_norm
+Gintama,https://open.spotify.com/playlist/4k5CSeHeezCEjVFxabBPaw,Gintama.jpg,exact_norm
+Given,https://open.spotify.com/playlist/4C2q0Mk6SITq0CByMptqei,Given.jpg,exact_norm
+Golden Kamuy,https://open.spotify.com/playlist/6DW3M4boXYozAtfYMGGTaX,Golden Kamuy.jpg,exact_norm
+Gurren Lagann,https://open.spotify.com/playlist/6ce5cPy0rz7Yz2zhKzXYO5,Gurren Lagann.jpg,exact_norm
+Haikyuu!!,https://open.spotify.com/playlist/467Ow975bYx9Lpvhlhv073,Haikyuu!!.jpg,exact_norm
+Hajime no Ippo,https://open.spotify.com/playlist/1p3LjrYk9adTxAhg6ZOBBL,Hajime no Ippo.jpg,exact_norm
+Hell's Paradise,https://open.spotify.com/playlist/3lZzqWqDJfoZCRx5mDG9TA,Hell's Paradise.jpg,exact_norm
+Hunter x Hunter,https://open.spotify.com/playlist/792ifnSQ2evHS3mYg63bMT,Hunter X Hunter.jpg,exact_norm
+Jujutsu Kaisen,https://open.spotify.com/playlist/0jQWVGWinLuEK27Aoj4k73,Jujutsu Kaisen.jpg,exact_norm
+Katekyo Hitman Reborn!,https://open.spotify.com/playlist/2NBwgvNzTYYyTcd9fqD05f,Katekyo Hitman Reborn!.jpg,exact_norm
+Kekkai Sensen,https://open.spotify.com/playlist/0WVipiRR4bzTFCh7pFTyxx,Kekkai Sensen.jpg,exact_norm
+Kimetsu no Yaiba,https://open.spotify.com/playlist/2o95l8RLNX7NDKuib2RsIn,Kimetsu no Yaiba.jpg,exact_norm
+Kingdom,https://open.spotify.com/playlist/372sgo3FxO7Ii8QLoFncOw,Kingdom.jpg,exact_norm
+Kuroko no Basuke,https://open.spotify.com/playlist/66MTx7oJeTPwnXMQfa2GWz,Kuroko no Basuke.jpg,exact_norm
+Link Click,https://open.spotify.com/playlist/2XxlKSO1DZDn0NJSFtfnjA,Link Click.jpg,exact_norm
+Magi,https://open.spotify.com/playlist/6Wh8Qe02tMOfxwpkdZ6sJO,Magi.jpg,exact_norm
+Mahouka Koukou no Rettousei,https://open.spotify.com/playlist/6m7rLpLX50TsT37ZD9kQcU,Mahouka Koukou no Rettousei.jpg,exact_norm
+March comes in like a lion,https://open.spotify.com/playlist/6bxOekvTA8tRfjaKVzeaZ9,March comes in like a lion.jpg,exact_norm
+Mekakucity Actors,https://open.spotify.com/playlist/59SBFaalqnkpDcTj4IM7zg,Mekakucity Actors.jpg,exact_norm
+Mob Psycho 100,https://open.spotify.com/playlist/34fH5pXCYCZPeoaAy4WEmj,Mob Psycho 100.jpg,exact_norm
+Mobile Suit Gundam,https://open.spotify.com/playlist/2UUg1nABbO0s6bvnjl7MXz,Mobile Suit Gundam.jpg,exact_norm
+Mushoku Tensei,https://open.spotify.com/playlist/4hBd3md9h7OnADCrRbh19B,Mushoku Tensei.jpg,exact_norm
+Nana,https://open.spotify.com/playlist/5jHK9vw8SFLqgDWeOKflsf,Nana.jpg,exact_norm
+Nanatsu No Taizai,https://open.spotify.com/playlist/2a7tYe5l0JTo9xWRL3SgLw,Nanatsu No Taizai.jpg,exact_norm
+Naruto,https://open.spotify.com/playlist/37hfIqMBACCka8bFflyrq6,Naruto.jpg,exact_norm
+Naruto Shippuden,https://open.spotify.com/playlist/2voZXbf1gABpD5txeMbAVN,Naruto Shippuden.jpg,exact_norm
+Noragami,https://open.spotify.com/playlist/6KSTd20d0Es5eXdrSaupnY,Noragami.jpg,exact_norm
+One Piece,https://open.spotify.com/playlist/3ZETgi91TzMkOLIAgNZQSJ,One Piece Film_ Red.jpg,fuzzy_jaccard_0.50
+One Piece Film: Red,https://open.spotify.com/playlist/6p0LleBMTER49YGVCQUbZH,One Piece Film_ Red.jpg,exact_norm
+Orb: On the Movements of the Earth,https://open.spotify.com/playlist/7a6pE3i6KL6Fbb9g9hP9Vt,Orb_On the Movements of the Earth.jpg,exact_norm
+Oregairu,https://open.spotify.com/playlist/0yGx56rWUc7sUEpUAlSIII,Oregairu.jpg,exact_norm
+Oshi no Ko,https://open.spotify.com/playlist/1TLqbSYrA4o36qbGipXink,Oshi No Ko.jpg,exact_norm
+Ousama Ranking,https://open.spotify.com/playlist/1z6h0ggCVP0BRwIM7hWYKI,Ousama Ranking.jpg,exact_norm
+Overlord,https://open.spotify.com/playlist/7Dm7zWJDK4VxjYMkBLBozy,Overlord.jpg,exact_norm
+Psycho Pass,https://open.spotify.com/playlist/5fF9h8hjlEQuhzwwrZBZNl,Psychopass.jpg,exact_collapse
+Ragna Crimson,https://open.spotify.com/playlist/62TqJDZymJTRabTYiiL75Y,Ragna Crimson.jpg,exact_norm
+Re:Zero,https://open.spotify.com/playlist/2DHV0rAXD0qrkrKNYnECIt,Re ZERO.jpg,exact_norm
+SAO,https://open.spotify.com/playlist/0DEbyIrgoLFPqPMR5wyyXj,SAO.jpg,exact_norm
+Sakamoto Days,https://open.spotify.com/playlist/6urllBlEJqB3O5utdj0bF8,Sakamoto days.jpg,exact_norm
+Shingeki no Kyojin,https://open.spotify.com/playlist/6KDJuksHsc3oWWbBGu3QRb,Shingeki no Kyojin.jpg,exact_norm
+Shokugeki no Soma,https://open.spotify.com/playlist/3K3lGXCe1q8xY6oNoOjQPb,Shokugeki no Souma.jpg,fuzzy_jaccard_0.50
+Solo Leveling,https://open.spotify.com/playlist/2wgLqvbxsC6C3x6n74c2MM,Solo Leveling.jpg,exact_norm
+Soul Eater,https://open.spotify.com/playlist/6OLT75KKlTyKQOg7e32d2x,Soul Eater.jpg,exact_norm
+Spy x Family,https://open.spotify.com/playlist/5guVSS0MUpPOpHS2H8i4w9,Spy x Family.jpg,exact_norm
+Super Campeones,https://open.spotify.com/playlist/3W9MEgzghV238q7X6FhiUn,Super Campeones.jpg,exact_norm
+The Apothecary Diaries,https://open.spotify.com/playlist/5rpv7pLtPiAQSLFEgtregY,The Apothecary Diaries.jpg,exact_norm
+The Promised Neverland,https://open.spotify.com/playlist/7r2QxdornXsU7aatnA3ayn,The Promised Neverland.jpg,exact_norm
+To be Hero X,https://open.spotify.com/playlist/6A0926Ux8JywGExzgkEKrp,To be Hero X.jpg,exact_norm
+Tokyo Ghoul,https://open.spotify.com/playlist/2MVbHxqXopXOyOs4nrnvvF,Tokyo Ghoul.jpg,exact_norm
+Tokyo Revengers,https://open.spotify.com/playlist/0IML9dLqAhgROAxhDaUHan,Tokyo Revengers.jpg,exact_norm
+Undead Unluck,https://open.spotify.com/playlist/2DHNMHIGNIVPaqK9Izi6Ew,Undead Unluck.jpg,exact_norm
+Vinland Saga,https://open.spotify.com/playlist/0WaXju3bmD0BF91BGEFzom,Vinland Saga.jpg,exact_norm
+Wind Breaker,https://open.spotify.com/playlist/6tBkzPDjnXjx3XfqVTak6y,Wind Breaker.jpg,exact_norm
