@@ -1,0 +1,13 @@
+/* Center content inside Material cards grid */
+.md-typeset .grid.cards > ul > li {
+  text-align: center;
+}
+
+.md-typeset .grid.cards > ul > li img {
+  display: block;
+  margin: 0.2rem auto 0.6rem auto;
+}
+
+.md-typeset .grid.cards > ul > li p {
+  margin: 0.35rem 0;
+}
