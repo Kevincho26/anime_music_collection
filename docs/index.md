@@ -1,9 +1,9 @@
-# Anime Music Collection
+﻿# Anime Music Collection
 
-Esta es una colección de playlists (una por serie).  
-Usa el buscador (lupa) para encontrar rápido una serie.
+Esta es una colecciÃ³n de playlists (una por serie).  
+Usa el buscador (lupa) para encontrar rÃ¡pido una serie.
 
-## Empezar aquí: Anime Gems
+## Empezar aquÃ­: Anime Gems
 
 === "Spotify"
     <iframe style="border-radius:12px"
@@ -12,34 +12,35 @@ Usa el buscador (lupa) para encontrar rápido una serie.
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"></iframe>
 
-    [▶ Abrir en Spotify](https://open.spotify.com/playlist/26faWsnq9PEzpOImFqkUbz)
+    [â–¶ Abrir en Spotify](https://open.spotify.com/playlist/26faWsnq9PEzpOImFqkUbz)
 
 === "YouTube"
-    *(pendiente: añade el link de YouTube a esta playlist)*
+    *(pendiente: aÃ±ade el link de YouTube a esta playlist)*
 
-## Series (A–Z)
+## Series (Aâ€“Z)
 
-Ve a **Series** en el menú, o entra directo a una letra:
+Ve a **Series** en el menÃº, o entra directo a una letra:
 
-- [0-9](series/0-9/)
-- [A](series/A/)
-- [B](series/B/)
-- [C](series/C/)
-- [D](series/D/)
-- [E](series/E/)
-- [F](series/F/)
-- [G](series/G/)
-- [H](series/H/)
-- [J](series/J/)
-- [K](series/K/)
-- [L](series/L/)
-- [M](series/M/)
-- [N](series/N/)
-- [O](series/O/)
-- [P](series/P/)
-- [R](series/R/)
-- [S](series/S/)
-- [T](series/T/)
-- [U](series/U/)
-- [V](series/V/)
-- [W](series/W/)
+- [0-9](series/0-9/index.md)
+- [A](series/A/index.md)
+- [B](series/B/index.md)
+- [C](series/C/index.md)
+- [D](series/D/index.md)
+- [E](series/E/index.md)
+- [F](series/F/index.md)
+- [G](series/G/index.md)
+- [H](series/H/index.md)
+- [J](series/J/index.md)
+- [K](series/K/index.md)
+- [L](series/L/index.md)
+- [M](series/M/index.md)
+- [N](series/N/index.md)
+- [O](series/O/index.md)
+- [P](series/P/index.md)
+- [R](series/R/index.md)
+- [S](series/S/index.md)
+- [T](series/T/index.md)
+- [U](series/U/index.md)
+- [V](series/V/index.md)
+- [W](series/W/index.md)
+
