@@ -1,21 +1,41 @@
 (async function () {
-  const siteRoot = new URL(document.querySelector("base")?.href || "/", location.origin);
+  function getPrefix() {
+    // 1) intenta usar <base href="...">
+    const baseAttr = document.querySelector("base")?.getAttribute("href");
+    if (baseAttr) {
+      try {
+        const u = new URL(baseAttr, location.origin);
+        return u.pathname.endsWith("/") ? u.pathname : u.pathname + "/";
+      } catch {}
+    }
 
-  // Carga el mapa URL -> {title, thumb}
+    // 2) fallback: deduce desde la URL actual
+    // Si estamos en /anime_music_collection/... -> prefix = /anime_music_collection/
+    const seg = location.pathname.split("/").filter(Boolean);
+    if (seg.length === 0) return "/";
+    if (["series", "assets", "javascripts", "stylesheets"].includes(seg[0])) return "/";
+    return `/${seg[0]}/`;
+  }
+
+  const prefix = getPrefix();
+  const origin = location.origin;
+
+  // Carga mapa URL -> {title, thumb}
   let map = {};
   try {
-    const res = await fetch(new URL("assets/search_thumbs.json", siteRoot).toString(), { cache: "no-store" });
+    const jsonUrl = origin + prefix + "assets/search_thumbs.json";
+    const res = await fetch(jsonUrl, { cache: "no-store" });
     if (res.ok) map = await res.json();
   } catch {
     map = {};
   }
 
-  function normalizeKey(href) {
-    const u = new URL(href, siteRoot);
+  function normalizeKeyFromHref(href) {
+    const u = new URL(href, origin);
     let path = u.pathname;
 
-    const basePath = siteRoot.pathname; // "/" o "/anime_music_collection/"
-    if (basePath !== "/" && path.startsWith(basePath)) path = path.slice(basePath.length);
+    // quita prefix (/anime_music_collection/) para comparar con keys del JSON: "series/A/xxx/"
+    if (prefix !== "/" && path.startsWith(prefix)) path = path.slice(prefix.length);
 
     path = path.replace(/^\//, "");
     path = path.replace(/index\.html?$/i, "");
@@ -23,46 +43,46 @@
     return decodeURIComponent(path);
   }
 
-  function isSeriesPath(href) {
-    try {
-      const u = new URL(href, siteRoot);
-      return u.pathname.includes("/series/");
-    } catch {
-      return (href || "").includes("/series/");
+  function fixHrefIfNeeded(href) {
+    // Si viene absoluto a raíz "/series/..." lo convertimos a "/anime_music_collection/series/..."
+    if (href.startsWith("/") && prefix !== "/" && !href.startsWith(prefix)) {
+      return prefix.replace(/\/$/, "") + href;
     }
+    return href;
   }
 
   function enhance() {
     const items = document.querySelectorAll(".md-search-result__item");
     items.forEach((item) => {
-      // ya procesado
       if (item.dataset.thumbified === "1") return;
 
       const a = item.querySelector("a");
       if (!a) return;
 
-      const href = a.getAttribute("href") || "";
-      const key = normalizeKey(href);
+      const rawHref = a.getAttribute("href") || "";
+      const fixedHref = fixHrefIfNeeded(rawHref);
+      if (fixedHref !== rawHref) a.setAttribute("href", fixedHref);
+
+      const key = normalizeKeyFromHref(a.getAttribute("href") || "");
       const meta = map[key];
 
-      // Si es algo de /series/ pero no es una serie real (no está en el mapa), lo ocultamos
-      if (!meta && isSeriesPath(href)) {
+      // si es algo de series pero no está en el mapa, lo ocultamos (evita “catálogos”)
+      if (!meta && key.startsWith("series/")) {
         item.style.display = "none";
         item.dataset.thumbified = "1";
         return;
       }
 
-      // Solo re-renderizamos los que tengan thumbnail
       if (!meta) return;
 
-      // Render limpio: SOLO thumb + título
+      // render limpio: solo thumb + título
       const clean = document.createElement("a");
       clean.className = "search-card";
       clean.href = a.href;
 
       const img = document.createElement("img");
       img.className = "search-thumb";
-      img.src = new URL(meta.thumb, siteRoot).toString();
+      img.src = origin + prefix + meta.thumb;
       img.alt = meta.title;
 
       const span = document.createElement("span");
