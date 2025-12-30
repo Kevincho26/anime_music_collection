@@ -11,3 +11,145 @@
 .md-typeset .grid.cards > ul > li p {
   margin: 0.35rem 0;
 }
+
+/* Center playlist buttons under embeds */
+.playlist-actions {
+  text-align: center;
+  margin: 0.6rem 0 1rem 0;
+}
+
+.playlist-actions .md-button {
+  margin: 0.2rem 0.3rem;
+}
+
+/* Master catalog: compact blocks */
+.az-block { margin: .2rem 0 1rem 0; }
+
+.az-summary{
+  font-weight: 750;
+  opacity: .85;
+  padding: .25rem .4rem;
+}
+
+/* === Master A–Z: grid compacto, max 5 cards por fila, sin estirarse === */
+
+/* Desktop: 5 columnas, grid centrado con ancho máximo fijo */
+.az-grid.grid.cards > ul{
+  display: grid;
+  gap: .45rem;
+  justify-content: center;
+
+  grid-template-columns: repeat(5, 170px);
+  max-width: calc(5 * 170px + 4 * .45rem);
+  margin: 0 auto;
+}
+
+/* Tablet grande: 4 columnas */
+@media (max-width: 1200px){
+  .az-grid.grid.cards > ul{
+    grid-template-columns: repeat(4, 170px);
+    max-width: calc(4 * 170px + 3 * .45rem);
+  }
+}
+
+/* Tablet: 3 columnas */
+@media (max-width: 900px){
+  .az-grid.grid.cards > ul{
+    grid-template-columns: repeat(3, 170px);
+    max-width: calc(3 * 170px + 2 * .45rem);
+  }
+}
+
+/* Móvil: 2 columnas */
+@media (max-width: 650px){
+  .az-grid.grid.cards > ul{
+    grid-template-columns: repeat(2, 160px);
+    max-width: calc(2 * 160px + 1 * .45rem);
+  }
+}
+
+/* Móvil pequeño: 1 columna */
+@media (max-width: 420px){
+  .az-grid.grid.cards > ul{
+    grid-template-columns: 170px;
+    max-width: 170px;
+  }
+}
+
+/* Cards más compactas */
+.az-grid.grid.cards > ul > li{
+  padding: .35rem .4rem;
+}
+
+/* Miniaturas estables (evita gigantismo/pixelado) */
+.az-thumb{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto .25rem auto;
+}
+
+/* Buttons under embeds: consistent everywhere */
+.playlist-actions{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin: .65rem 0 1rem 0;
+  text-align: center;
+}
+
+/* If markdown adds <p> inside, remove extra spacing */
+.playlist-actions p{
+  margin: 0;
+}
+
+/* Make buttons feel consistent */
+.playlist-actions .md-button{
+  margin: 0;           /* gap handles spacing */
+}
+
+/* Search results: layout thumb + text (tu versión no tiene .md-search-result__title) */
+.md-search-result__item > a{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+/* Thumb */
+.search-thumb{
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+/* Search results: clean card (thumb + title only) */
+.md-search-result__item .search-card{
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .35rem .4rem;
+  border-radius: 12px;
+}
+
+/* Bigger thumbnail */
+.md-search-result__item .search-thumb{
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+/* Title styling */
+.md-search-result__item .search-title{
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+html { scroll-behavior: smooth; }
