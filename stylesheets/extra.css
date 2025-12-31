@@ -1,6 +1,7 @@
 /* =========================================================
    Minimal baseline: typography + layout
    ========================================================= */
+
 /* ===== Self-host fonts ===== */
 
 /* Manrope (text) */
@@ -48,17 +49,18 @@
   --md-code-font: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
+/* Content width */
 .md-content {
   max-width: 1100px;
 }
 
+/* Readability */
 .md-typeset {
   font-size: 0.98rem;
   line-height: 1.55;
 }
 .md-typeset h1 { letter-spacing: -0.01em; }
 .md-typeset h2, .md-typeset h3 { letter-spacing: -0.008em; }
-
 
 .md-typeset h3 {
   font-weight: 700;
@@ -74,16 +76,33 @@
   text-underline-offset: 3px;
 }
 
-/* Scroll suave para anchors A–Z */
+/* Scroll suave para anchors */
 html { scroll-behavior: smooth; }
 
 /* =========================================================
-   Embeds: look "card" minimal
+   Embeds: look "card" minimal (scoped, not global iframes)
    ========================================================= */
 
-iframe{
+/* Prefer wrapping embeds in a container:
+   <div class="embed-container"><iframe ...></iframe></div>
+*/
+.embed-container {
+  border-radius: 14px;
+  overflow: hidden; /* ensures radius clips the iframe */
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
+}
+
+/* If you don't have a wrapper, at least scope to content area */
+.md-typeset iframe {
+  border: 0;
   border-radius: 14px;
   box-shadow: 0 10px 26px rgba(0,0,0,.10);
+}
+
+/* If wrapper exists, avoid double shadows */
+.embed-container iframe {
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* =========================================================
@@ -122,13 +141,12 @@ iframe{
 
 /* =========================================================
    Master catalog A–Z: compact + max 5 cards per row
-   (prevents 1-card rows from stretching huge)
    ========================================================= */
 
 .az-block { margin: .2rem 0 1rem 0; }
 
 .az-summary{
-  font-weight: 750;
+  font-weight: 700; /* was 750; keep consistent with available font weights */
   opacity: .85;
   padding: .25rem .4rem;
 }
@@ -195,6 +213,13 @@ iframe{
    Search results: clean card (thumb + title only)
    ========================================================= */
 
+/* Hard guarantee: no snippets/meta */
+.md-search-result__teaser,
+.md-search-result__meta {
+  display: none !important;
+}
+
+/* If JS injects .search-card, style it */
 .md-search-result__item .search-card{
   display: flex;
   align-items: center;
@@ -203,6 +228,13 @@ iframe{
   border-radius: 14px;
   text-decoration: none;
   transition: transform .12s ease, box-shadow .12s ease;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(0,0,0,.02);
+}
+
+[data-md-color-scheme="slate"] .md-search-result__item .search-card{
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
 }
 
 .md-search-result__item .search-card:hover{
@@ -219,13 +251,16 @@ iframe{
 }
 
 .md-search-result__item .search-title{
-  font-weight: 800;
+  font-weight: 700; /* was 800; keep consistent */
   font-size: 1.05rem;
   line-height: 1.2;
 }
-/* ===== A–Z (Hybrid) ===== */
 
-/* Importante: que al saltar con # no quede tapado por el header */
+/* =========================================================
+   A–Z (Hybrid)
+   ========================================================= */
+
+/* Para que al saltar con # no quede tapado por el header */
 .md-content :is(h2,h3)[id^="az-"]{
   scroll-margin-top: calc(var(--md-header-height, 3.2rem) + 3.2rem);
 }
@@ -286,9 +321,18 @@ iframe{
   border-color: rgba(255,255,255,.14);
   background: rgba(255,255,255,.04);
 }
+
+/* Fallback highlight (works everywhere) */
 .amc-az-chip.is-active{
   border-color: var(--md-accent-fg-color);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--md-accent-fg-color) 20%, transparent);
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, .18); /* fallback */
+}
+
+/* If browser supports color-mix, use nicer highlight */
+@supports (color: color-mix(in srgb, white 50%, black)) {
+  .amc-az-chip.is-active{
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--md-accent-fg-color) 20%, transparent);
+  }
 }
 
 /* Rail vertical minimal (desktop) */
@@ -301,14 +345,24 @@ iframe{
   padding: .4rem .35rem;
   border: 1px solid rgba(0,0,0,.10);
   border-radius: 14px;
-  background: color-mix(in srgb, var(--md-default-bg-color) 92%, transparent);
+  background: rgba(255,255,255,.85); /* fallback */
   backdrop-filter: blur(10px);
   max-height: calc(100vh - (var(--md-header-height, 3.2rem) + 2.0rem));
   overflow: auto;
 }
 [data-md-color-scheme="slate"] .amc-az-rail{
   border-color: rgba(255,255,255,.14);
-  background: color-mix(in srgb, var(--md-default-bg-color) 88%, transparent);
+  background: rgba(0,0,0,.35); /* fallback */
+}
+
+/* Nicer backgrounds if supported */
+@supports (background: color-mix(in srgb, white 80%, transparent)) {
+  .amc-az-rail{
+    background: color-mix(in srgb, var(--md-default-bg-color) 92%, transparent);
+  }
+  [data-md-color-scheme="slate"] .amc-az-rail{
+    background: color-mix(in srgb, var(--md-default-bg-color) 88%, transparent);
+  }
 }
 
 .amc-az-rail-link{
@@ -318,7 +372,7 @@ iframe{
   padding: .18rem 0;
   border-radius: 10px;
   text-decoration:none !important;
-  font-weight: 800;
+  font-weight: 700; /* was 800 */
   font-size: .78rem;
   line-height: 1;
   color: inherit;
@@ -330,7 +384,12 @@ iframe{
 .amc-az-rail-link.is-active{
   opacity: 1;
   color: var(--md-accent-fg-color);
-  background: color-mix(in srgb, var(--md-accent-fg-color) 12%, transparent);
+  background: rgba(63, 81, 181, .12); /* fallback */
+}
+@supports (background: color-mix(in srgb, white 80%, transparent)) {
+  .amc-az-rail-link.is-active{
+    background: color-mix(in srgb, var(--md-accent-fg-color) 12%, transparent);
+  }
 }
 
 /* Móvil: dropdown ON, rail OFF */
