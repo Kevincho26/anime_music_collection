@@ -3,12 +3,12 @@ hide:
   - toc
 ---
 
-# Anime Music Collection
+# Home
+Colección de playlist de series con los mejores openings y endings.  
 
-Esta es una colección de playlists (una por serie).  
-Usa el buscador (lupa) para encontrar rápido una serie.
+Usa la caja de busqueda para encontrar rápido una serie o abre el catálogo para ver las series disponibles.
 
-## Best songs: Anime Gems
+## Best songs playlist: Anime Gems
 
 === "Spotify"
 	<div class="playlist-actions" markdown>
@@ -51,8 +51,4 @@ Usa el buscador (lupa) para encontrar rápido una serie.
 
 	
 	
-## Series
 
-<div class="playlist-actions" markdown>
-[📚 Ver catálogo A–Z](series/index.md){ .md-button .md-button--primary }
-</div>

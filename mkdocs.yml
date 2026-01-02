@@ -1,23 +1,28 @@
-site_name: My Anime Music Collection
-site_url: https://kevincho26.github.io/anime_music_collection/
+site_name: Anison
+site_url: https://kevincho26.github.io/Anison/
 use_directory_urls: true
 
 theme:
   name: material
+  custom_dir: overrides
   font: false
+  favicon: assets/icons/favicon.ico
+  logo: assets/icons/icon-192.png
+
   palette:
     - scheme: default
       primary: white
-      accent: indigo
+      accent: custom
       toggle:
         icon: material/weather-night
         name: Dark mode
     - scheme: slate
       primary: black
-      accent: indigo
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Light mode
+
   features:
     - navigation.instant
     - navigation.instant.progress
@@ -29,9 +34,7 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
-  custom_dir: overrides
-  favicon: assets/icons/favicon.ico
-  logo: assets/icons/icon-192.png
+
 plugins:
   - search
   - awesome-pages
@@ -51,7 +54,7 @@ extra_css:
   - stylesheets/extra.css
 
 extra_javascript:
-  - javascripts/header_title_page.js
   - javascripts/open_az_details.js
-  - javascripts/search_thumbs.js
   - javascripts/az_nav.js
+  - javascripts/header_title_page.js
+  - javascripts/search_thumbs.js

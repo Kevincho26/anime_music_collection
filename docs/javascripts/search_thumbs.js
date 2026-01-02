@@ -10,7 +10,7 @@
     }
 
     // 2) fallback: deduce desde la URL actual
-    // Si estamos en /anime_music_collection/... -> prefix = /anime_music_collection/
+    // Si estamos en /Anison/... -> prefix = /Anison/
     const seg = location.pathname.split("/").filter(Boolean);
     if (seg.length === 0) return "/";
     if (["series", "assets", "javascripts", "stylesheets"].includes(seg[0])) return "/";
@@ -34,7 +34,7 @@
     const u = new URL(href, origin);
     let path = u.pathname;
 
-    // quita prefix (/anime_music_collection/) para comparar con keys del JSON: "series/A/xxx/"
+    // quita prefix (/Anison/) para comparar con keys del JSON: "series/A/xxx/"
     if (prefix !== "/" && path.startsWith(prefix)) path = path.slice(prefix.length);
 
     path = path.replace(/^\//, "");
@@ -44,7 +44,7 @@
   }
 
   function fixHrefIfNeeded(href) {
-    // Si viene absoluto a raíz "/series/..." lo convertimos a "/anime_music_collection/series/..."
+    // Si viene absoluto a raíz "/series/..." lo convertimos a "/Anison/series/..."
     if (href.startsWith("/") && prefix !== "/" && !href.startsWith(prefix)) {
       return prefix.replace(/\/$/, "") + href;
     }
