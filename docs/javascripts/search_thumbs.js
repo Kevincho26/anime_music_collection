@@ -1,3 +1,18 @@
+function getSiteRoot() {
+  // Ej: /Anison/series/ -> ["Anison","series"]
+  const parts = window.location.pathname.split("/").filter(Boolean);
+
+  // Si estás sirviendo bajo /Anison/ (local o GH Pages)
+  if (parts.length > 0) return `/${parts[0]}/`;
+
+  // Si alguna vez sirves en raíz
+  return "/";
+}
+
+const SITE_ROOT = getSiteRoot();
+const SERIES_INDEX_URL = `${SITE_ROOT}series/`;
+const THUMBS_JSON_URL = `${SITE_ROOT}assets/search_thumbs.json`;
+
 (async function () {
   function getPrefix() {
     // 1) intenta usar <base href="...">

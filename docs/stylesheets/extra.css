@@ -693,3 +693,226 @@ body[data-md-state="search"] .amc-az-wrap{
   border-color: var(--brand-red) !important;
   color: #fff !important;
 }
+
+/* ================================
+   Anison – Catalog (series/) cards
+   Cambia borde + icono (lápiz)
+   ================================ */
+
+:root{
+  --anison-card-accent: #ff4d4d; /* <-- pon tu color aquí */
+}
+
+/* SOLO en la página /series/ (catálogo) */
+body[data-md-url^="series/"] .md-typeset :is(.admonition, details){
+  border-color: var(--anison-card-accent) !important;
+}
+
+/* Icono (lápiz) en esa página */
+body[data-md-url^="series/"] .md-typeset :is(.admonition-title, summary)::before{
+  background-color: var(--anison-card-accent) !important;
+}
+
+/* (Opcional) si quieres reforzar el borde completo */
+body[data-md-url^="series/"] .md-typeset :is(.admonition, details){
+  border: .075rem solid var(--anison-card-accent) !important;
+}
+
+/* =========================================================
+   Catalog cards (admonitions): kill Material blue (#448aff)
+   Works like the button fix: target BODY data-md-color-*
+   ========================================================= */
+
+body[data-md-color-scheme] .md-typeset :is(.admonition, details){
+  border: .075rem solid #fd4c4c !important; /* <-- tu rojo de marca */
+}
+
+/* Pencil icon (and any admonition icon) */
+body[data-md-color-scheme] .md-typeset :is(.admonition-title, summary):before{
+  background-color: #fd4c4c !important;
+}
+
+/* =========================================
+   Catalog cards: header (summary/title) bg
+   rojo claro/transparente
+   ========================================= */
+
+:root{
+  --anison-card-accent: #fd4c4c;  /* tu rojo */
+  --anison-card-header-bg: rgba(253, 76, 76, 0.12); /* ajusta 0.08–0.18 */
+}
+
+/* Fondo del “tab” (donde dice "1 serie") */
+body[data-md-color-scheme] .md-typeset details > summary,
+body[data-md-color-scheme] .md-typeset .admonition > .admonition-title{
+  background-color: var(--anison-card-header-bg) !important;
+}
+
+/* =========================================================
+   A–Z Catalog cards (titles/links)
+   Normal: negro (light) / blanco (dark)
+   Hover/Focus: rojo marca
+   Scope: SOLO dentro de .az-grid.grid.cards
+   ========================================================= */
+
+/* 1) Cambiamos la variable que usa la regla global:
+      .md-typeset a { color: var(--md-typeset-a-color); } */
+.md-typeset .az-grid.grid.cards{
+  --md-typeset-a-color: var(--md-default-fg-color);
+}
+
+/* 2) Refuerzo explícito (por si hay reglas más específicas en cards) */
+.md-typeset .az-grid.grid.cards a,
+.md-typeset .az-grid.grid.cards a:link,
+.md-typeset .az-grid.grid.cards a:visited{
+  color: var(--md-default-fg-color) !important;
+  text-decoration: none !important;
+}
+
+/* 3) Hover/Focus en rojo marca */
+.md-typeset .az-grid.grid.cards a:hover,
+.md-typeset .az-grid.grid.cards a:focus,
+.md-typeset .az-grid.grid.cards a:focus-visible,
+.md-typeset .az-grid.grid.cards a:active{
+  color: var(--brand-red) !important;
+  text-decoration: underline !important;
+}
+
+/* =========================================================
+   Barra flotante derecha (A–Z) – .amc-az-rail
+   Normal: negro (light) / blanco (dark)
+   Hover/Focus: rojo marca
+   ========================================================= */
+
+.md-typeset .amc-az-rail{
+  --md-typeset-a-color: var(--md-default-fg-color);
+}
+
+.md-typeset .amc-az-rail a,
+.md-typeset .amc-az-rail a:link,
+.md-typeset .amc-az-rail a:visited{
+  color: var(--md-default-fg-color) !important;
+  text-decoration: none !important;
+}
+
+.md-typeset .amc-az-rail a:hover,
+.md-typeset .amc-az-rail a:focus,
+.md-typeset .amc-az-rail a:focus-visible,
+.md-typeset .amc-az-rail a:active{
+  color: var(--brand-red) !important;
+  text-decoration: underline !important;
+}
+
+/* =========================================================
+   Cards + A–Z rail: NORMAL negro/blanco + HOVER rojo
+   (robusto: fuerza SOLO cuando NO es hover/focus/active)
+   ========================================================= */
+
+:root{
+  --anison-red: var(--brand-red);
+  --anison-link-light: #000;
+  --anison-link-dark: #fff;
+}
+
+/* ---------- NORMAL (LIGHT) ---------- */
+body[data-md-color-scheme="default"] .md-typeset :is(.az-grid.grid.cards, .amc-az-rail) a:not(:hover):not(:focus):not(:focus-visible):not(:active):not(.md-button),
+body[data-md-color-scheme="default"] .md-typeset :is(.az-grid.grid.cards, .amc-az-rail) a:visited:not(:hover):not(:focus):not(:focus-visible):not(:active):not(.md-button){
+  color: var(--anison-link-light) !important;
+  text-decoration: none !important;
+}
+
+/* ---------- NORMAL (DARK) ---------- */
+body[data-md-color-scheme="slate"] .md-typeset :is(.az-grid.grid.cards, .amc-az-rail) a:not(:hover):not(:focus):not(:focus-visible):not(:active):not(.md-button),
+body[data-md-color-scheme="slate"] .md-typeset :is(.az-grid.grid.cards, .amc-az-rail) a:visited:not(:hover):not(:focus):not(:focus-visible):not(:active):not(.md-button){
+  color: var(--anison-link-dark) !important;
+  text-decoration: none !important;
+}
+
+/* ---------- HOVER / FOCUS (AMBOS MODOS) ---------- */
+.md-typeset :is(.az-grid.grid.cards, .amc-az-rail) a:hover,
+.md-typeset :is(.az-grid.grid.cards, .amc-az-rail) a:focus,
+.md-typeset :is(.az-grid.grid.cards, .amc-az-rail) a:focus-visible,
+.md-typeset :is(.az-grid.grid.cards, .amc-az-rail) a:active{
+  color: var(--anison-red) !important;
+  text-decoration: underline !important;
+}
+/* =========================================================
+   Page titles (H1): rojo en light, blanco en dark
+   ========================================================= */
+
+/* (Opcional) Header topic/title */
+body[data-md-color-scheme="default"] .md-header__topic,
+body[data-md-color-scheme="default"] .md-header__title{
+  color: var(--brand-red) !important;
+}
+
+body[data-md-color-scheme="slate"] .md-header__topic,
+body[data-md-color-scheme="slate"] .md-header__title{
+  color: #fff !important;
+}
+
+/* =========================================================
+   Page titles (H1): rojo en light, blanco en dark
+   (fix: md-content__inner y md-typeset están en el MISMO elemento)
+   ========================================================= */
+
+body[data-md-color-scheme="default"] .md-content__inner.md-typeset > h1,
+body[data-md-color-scheme="default"] .md-typeset h1 {
+  color: var(--brand-red) !important;
+}
+
+body[data-md-color-scheme="slate"] .md-content__inner.md-typeset > h1,
+body[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: #fff !important;
+}
+
+/* =========================================================
+   Left sidebar (nav)
+   1) Ocultar "Anison" arriba (site title en el sidebar)
+   2) Home y Series con mismo peso/tamaño
+   ========================================================= */
+
+/* 1) Quitar el título del sidebar ("Anison") */
+.md-sidebar--primary .md-nav--primary > .md-nav__title {
+  display: none !important;
+}
+
+/* (Opcional) si al ocultarlo queda un hueco arriba, ajusta padding */
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  padding-top: .4rem !important;
+}
+
+/* 2) Unificar tipografía de items (Home, Series, etc.) */
+.md-sidebar--primary .md-nav--primary .md-nav__link {
+  font-weight: 600 !important;   /* ajusta: 500/600/700 */
+  font-size: 1rem !important;    /* ajusta si lo quieres más chico/grande */
+}
+
+/* Evitar que el item activo cambie de “peso” */
+.md-sidebar--primary .md-nav--primary .md-nav__item--active > .md-nav__link {
+  font-weight: 600 !important;
+}
+
+/* =========================================================
+   Divider vertical entre sidebar izquierdo y contenido
+   (dibujado en el scrollwrap para que SIEMPRE se vea)
+   ========================================================= */
+
+@media (min-width: 60em) {
+  .md-sidebar--primary .md-sidebar__scrollwrap{
+    position: relative;
+  }
+
+  .md-sidebar--primary .md-sidebar__scrollwrap::after{
+    content: "";
+    position: absolute;
+    right: 80px;          /* justo en el borde del sidebar */
+    top: 1.2rem;       /* no llega hasta arriba */
+    bottom: 1.2rem;    /* no llega hasta abajo */
+    width: 3px;        /* grosor */
+    background: var(--brand-red);
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 5;
+  }
+}
