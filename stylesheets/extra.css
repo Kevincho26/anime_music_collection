@@ -146,7 +146,7 @@ html { scroll-behavior: smooth; }
 .az-block { margin: .2rem 0 1rem 0; }
 
 .az-summary{
-  font-weight: 700; /* was 750; keep consistent with available font weights */
+  font-weight: 700;
   opacity: .85;
   padding: .25rem .4rem;
 }
@@ -251,7 +251,7 @@ html { scroll-behavior: smooth; }
 }
 
 .md-search-result__item .search-title{
-  font-weight: 700; /* was 800; keep consistent */
+  font-weight: 700;
   font-size: 1.05rem;
   line-height: 1.2;
 }
@@ -269,7 +269,7 @@ html { scroll-behavior: smooth; }
 .amc-az-wrap{
   position: sticky;
   top: calc(var(--md-header-height, 3.2rem) + 0.25rem);
-  z-index: 5; /* bajo (overlays como search deberían ir encima) */
+  z-index: 5;
   padding: .35rem 0;
   background: var(--md-default-bg-color);
   backdrop-filter: blur(8px);
@@ -294,10 +294,10 @@ html { scroll-behavior: smooth; }
 .amc-az-bar{
   display:flex;
   gap: .28rem;
-  flex-wrap: nowrap;             /* 1 fila */
+  flex-wrap: nowrap;
   align-items:center;
   padding: .15rem 0;
-  overflow-x:auto;               /* fallback pro si no cabe */
+  overflow-x:auto;
   -webkit-overflow-scrolling: touch;
 }
 .amc-az-bar::-webkit-scrollbar{ height:8px; }
@@ -322,13 +322,10 @@ html { scroll-behavior: smooth; }
   background: rgba(255,255,255,.04);
 }
 
-/* Fallback highlight (works everywhere) */
+/* Highlight (uses accent color) */
 .amc-az-chip.is-active{
   border-color: var(--md-accent-fg-color);
-  box-shadow: 0 0 0 2px rgba(63, 81, 181, .18); /* fallback */
 }
-
-/* If browser supports color-mix, use nicer highlight */
 @supports (color: color-mix(in srgb, white 50%, black)) {
   .amc-az-chip.is-active{
     box-shadow: 0 0 0 2px color-mix(in srgb, var(--md-accent-fg-color) 20%, transparent);
@@ -337,22 +334,22 @@ html { scroll-behavior: smooth; }
 
 /* Rail vertical minimal (desktop) */
 .amc-az-rail{
-  display:none; /* por defecto oculto; se enciende en desktop */
+  display:none;
   position: fixed;
   top: calc(var(--md-header-height, 3.2rem) + 1.0rem);
   right: calc(0.8rem + env(safe-area-inset-right));
-  z-index: 6; /* encima del contenido, debajo de overlays grandes */
+  z-index: 6;
   padding: .4rem .35rem;
   border: 1px solid rgba(0,0,0,.10);
   border-radius: 14px;
-  background: rgba(255,255,255,.85); /* fallback */
+  background: rgba(255,255,255,.85);
   backdrop-filter: blur(10px);
   max-height: calc(100vh - (var(--md-header-height, 3.2rem) + 2.0rem));
   overflow: auto;
 }
 [data-md-color-scheme="slate"] .amc-az-rail{
   border-color: rgba(255,255,255,.14);
-  background: rgba(0,0,0,.35); /* fallback */
+  background: rgba(0,0,0,.35);
 }
 
 /* Nicer backgrounds if supported */
@@ -372,7 +369,7 @@ html { scroll-behavior: smooth; }
   padding: .18rem 0;
   border-radius: 10px;
   text-decoration:none !important;
-  font-weight: 700; /* was 800 */
+  font-weight: 700;
   font-size: .78rem;
   line-height: 1;
   color: inherit;
@@ -384,7 +381,6 @@ html { scroll-behavior: smooth; }
 .amc-az-rail-link.is-active{
   opacity: 1;
   color: var(--md-accent-fg-color);
-  background: rgba(63, 81, 181, .12); /* fallback */
 }
 @supports (background: color-mix(in srgb, white 80%, transparent)) {
   .amc-az-rail-link.is-active{
@@ -397,11 +393,11 @@ html { scroll-behavior: smooth; }
   .amc-az-select{ display:block; }
 }
 
-/* Desktop ancho: rail ON y barra arriba OFF (para no duplicar) */
+/* Desktop ancho: rail ON y barra arriba OFF */
 @media (min-width: 1100px){
   .amc-az-wrap{
-    position: static;  /* ya no necesitamos sticky arriba */
-    padding: 0;        /* evita “hueco” */
+    position: static;
+    padding: 0;
     background: transparent;
     backdrop-filter: none;
   }
@@ -416,21 +412,20 @@ body[data-md-state="search"] .amc-az-wrap{
   display:none !important;
 }
 
-/* Header title: evita que el "Site — Page" se rompa raro */
+/* Header title ellipsis */
 .md-header__title .md-ellipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 /* =========================================================
    A–Z Rail refinement (desktop)
-   Pegar al FINAL del extra.css para sobreescribir.
    ========================================================= */
 
 @media (min-width: 1200px) and (pointer: fine) {
-  /* Caja del rail más discreta */
   .amc-az-rail{
-    right: 0.6rem; /* más pegado al borde */
+    right: 0.6rem;
     padding: .28rem .22rem;
     border-radius: 12px;
     border-color: rgba(0,0,0,.08);
@@ -444,16 +439,14 @@ body[data-md-state="search"] .amc-az-wrap{
     box-shadow: 0 12px 28px rgba(0,0,0,.35);
   }
 
-  /* Se “retira” un pelín y se hace más visible al hover */
   .amc-az-rail:hover{
     opacity: 1;
     transform: translateY(-1px);
   }
 
-  /* Links más compactos (entra mejor y se ve más “index”) */
   .amc-az-rail-link{
-    width: 1.45rem;     /* antes 1.7rem */
-    padding: .14rem 0;  /* menos alto */
+    width: 1.45rem;
+    padding: .14rem 0;
     border-radius: 9px;
     font-size: .74rem;
     font-weight: 700;
@@ -464,7 +457,6 @@ body[data-md-state="search"] .amc-az-wrap{
     opacity: 1;
   }
 
-  /* Activo más sutil */
   .amc-az-rail-link.is-active{
     background: rgba(0,0,0,.06);
   }
@@ -472,9 +464,8 @@ body[data-md-state="search"] .amc-az-wrap{
     background: rgba(255,255,255,.09);
   }
 
-  /* Scrollbar casi invisible (igual usable) */
   .amc-az-rail{
-    scrollbar-width: thin; /* Firefox */
+    scrollbar-width: thin;
   }
   .amc-az-rail::-webkit-scrollbar{ width: 8px; }
   .amc-az-rail::-webkit-scrollbar-thumb{
@@ -496,4 +487,209 @@ body[data-md-state="search"] .amc-az-wrap{
 .md-nav__button.md-logo img {
   width: 2.6rem;
   height: 2.6rem;
+}
+
+/* =========================================================
+   Mobile polish (minimal, safe overrides)
+   ========================================================= */
+
+@media (max-width: 720px){
+  .md-content__inner{
+    padding-left: .7rem;
+    padding-right: .7rem;
+  }
+
+  .amc-az-wrap{
+    top: calc(var(--md-header-height, 3.2rem) + 0.15rem);
+    padding: .25rem 0;
+  }
+
+  .amc-az-chip{
+    padding: .18rem .38rem;
+    font-size: .76rem;
+  }
+
+  .az-grid.grid.cards > ul{
+    grid-template-columns: repeat(2, 150px);
+    max-width: calc(2 * 150px + 1 * .45rem);
+  }
+
+  .az-thumb{
+    border-radius: 10px;
+  }
+  .az-grid.grid.cards > ul > li{
+    padding: .30rem .35rem;
+  }
+
+  .md-search-result__item .search-thumb{
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+  }
+  .md-search-result__item .search-title{
+    font-size: 1.0rem;
+  }
+}
+
+@media (max-width: 380px){
+  .az-grid.grid.cards > ul{
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   BRAND (clean): pure tones + red accent + NO BLUE buttons
+   ========================================================= */
+
+:root{
+  --brand-red: #fd4c4c;
+
+  /* Material accent */
+  --md-accent-fg-color: var(--brand-red);
+  --md-accent-fg-color--transparent: rgba(253, 76, 76, 0.18);
+}
+
+/* Light: white bg, black text, red links */
+:root[data-md-color-scheme="default"]{
+  --md-default-bg-color: #ffffff;
+  --md-default-fg-color: #000000;
+
+  --md-primary-bg-color: #ffffff;
+  --md-primary-fg-color: #000000;
+
+  --md-typeset-a-color: var(--brand-red);
+
+  --md-footer-bg-color: #ffffff;
+  --md-footer-fg-color: #000000;
+}
+
+/* Dark: black bg, white text, red links */
+:root[data-md-color-scheme="slate"]{
+  --md-default-bg-color: #000000;
+  --md-default-fg-color: #ffffff;
+
+  --md-primary-bg-color: #000000;
+  --md-primary-fg-color: #ffffff;
+
+  --md-typeset-a-color: var(--brand-red);
+
+  --md-footer-bg-color: #000000;
+  --md-footer-fg-color: #ffffff;
+}
+
+/* Left nav: remove blue → red on hover/active */
+.md-nav__link:hover,
+.md-nav__link:focus,
+.md-nav__link--active,
+.md-nav__item--active > .md-nav__link{
+  color: var(--brand-red) !important;
+}
+
+/* ---------- Buttons: kill any palette blue (primary/normal) ---------- */
+
+/* Base shape */
+.md-typeset a.md-button,
+.md-typeset .md-button{
+  border-radius: 999px;
+  box-shadow: none !important;
+  background-image: none !important;
+  text-decoration: none !important;
+}
+
+/* Normal (outline) */
+:root[data-md-color-scheme="default"] .md-typeset a.md-button,
+:root[data-md-color-scheme="default"] .md-typeset .md-button{
+  background: transparent !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+:root[data-md-color-scheme="slate"] .md-typeset a.md-button,
+:root[data-md-color-scheme="slate"] .md-typeset .md-button{
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+}
+
+/* Primary (solid) — this is the one that was turning blue */
+:root[data-md-color-scheme="default"] a.md-button--primary,
+:root[data-md-color-scheme="default"] .md-button--primary,
+:root[data-md-color-scheme="default"] .md-typeset a.md-button--primary,
+:root[data-md-color-scheme="default"] .md-typeset .md-button--primary{
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+:root[data-md-color-scheme="slate"] a.md-button--primary,
+:root[data-md-color-scheme="slate"] .md-button--primary,
+:root[data-md-color-scheme="slate"] .md-typeset a.md-button--primary,
+:root[data-md-color-scheme="slate"] .md-typeset .md-button--primary{
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Hover: brand red */
+.md-typeset a.md-button--primary:hover,
+.md-typeset .md-button--primary:hover,
+.md-typeset a.md-button--primary:focus,
+.md-typeset .md-button--primary:focus{
+  background-color: var(--brand-red) !important;
+  border-color: var(--brand-red) !important;
+  color: #ffffff !important;
+}
+
+/* Keep visited stable */
+:root[data-md-color-scheme="default"] a.md-button--primary:visited{ color:#ffffff !important; }
+:root[data-md-color-scheme="slate"] a.md-button--primary:visited{ color:#000000 !important; }
+
+/* Extra hard override for the exact rule you saw in DevTools */
+[data-md-color-primary="black"] .md-button--primary,
+[data-md-color-primary="white"] .md-button--primary{
+  background-color: inherit !important; /* will be overwritten by scheme rules above */
+}
+
+/* =========================================================
+   FINAL: Kill Material blue for md-button--primary
+   IMPORTANT: targets body[data-md-color-*] (NOT html)
+   Desired:
+   Light -> border+text BLACK
+   Dark  -> border+text WHITE
+   ========================================================= */
+
+:root { --brand-red: #fd4c4c; }
+
+/* ---- LIGHT (primary=white) ---- */
+[data-md-color-scheme="default"][data-md-color-primary="white"] .md-typeset a.md-button--primary,
+[data-md-color-scheme="default"][data-md-color-primary="white"] .md-button--primary {
+  background-color: transparent !important;
+  border-color: #000 !important;
+  color: #000 !important;
+  box-shadow: none !important;
+}
+
+/* ---- DARK (primary=black) ---- */
+[data-md-color-scheme="slate"][data-md-color-primary="black"] .md-typeset a.md-button--primary,
+[data-md-color-scheme="slate"][data-md-color-primary="black"] .md-button--primary {
+  background-color: transparent !important;
+  border-color: #fff !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* Prevent blue focus ring / active styles */
+[data-md-color-scheme] .md-button--primary:focus,
+[data-md-color-scheme] .md-button--primary:active {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Optional: hover rojo marca */
+[data-md-color-scheme] .md-typeset a.md-button--primary:hover,
+[data-md-color-scheme] .md-button--primary:hover {
+  background-color: var(--brand-red) !important;
+  border-color: var(--brand-red) !important;
+  color: #fff !important;
 }
