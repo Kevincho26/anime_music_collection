@@ -916,3 +916,91 @@ body[data-md-color-scheme="slate"] .md-typeset h1 {
     z-index: 5;
   }
 }
+
+/* =========================================================
+   YouTube buttons (md-button) – Outline normal, Solid on hover
+   Normal: fondo transparente, borde visible, texto negro/blanco
+   Hover/Focus: fondo rojo + borde rojo + texto blanco (siempre)
+   ========================================================= */
+
+/* Base: sin relleno, borde visible */
+body[data-md-color-primary] .md-typeset a.md-button[href*="youtube"],
+body[data-md-color-primary] .md-typeset a.md-button[href*="youtu.be"]{
+  background-color: transparent !important;
+  border: 1px solid currentColor !important;
+  box-shadow: none !important;
+}
+
+/* Normal (LIGHT) */
+body[data-md-color-primary][data-md-color-scheme="default"] .md-typeset a.md-button[href*="youtube"],
+body[data-md-color-primary][data-md-color-scheme="default"] .md-typeset a.md-button[href*="youtu.be"]{
+  color: #000 !important;
+}
+
+/* Normal (DARK) */
+body[data-md-color-primary][data-md-color-scheme="slate"] .md-typeset a.md-button[href*="youtube"],
+body[data-md-color-primary][data-md-color-scheme="slate"] .md-typeset a.md-button[href*="youtu.be"]{
+  color: #fff !important;
+}
+
+/* Hover/Focus: SOLIDO rojo + texto blanco (en ambos modos) */
+body[data-md-color-primary] .md-typeset a.md-button[href*="youtube"]:hover,
+body[data-md-color-primary] .md-typeset a.md-button[href*="youtu.be"]:hover,
+body[data-md-color-primary] .md-typeset a.md-button[href*="youtube"]:focus,
+body[data-md-color-primary] .md-typeset a.md-button[href*="youtu.be"]:focus,
+body[data-md-color-primary] .md-typeset a.md-button[href*="youtube"]:focus-visible,
+body[data-md-color-primary] .md-typeset a.md-button[href*="youtu.be"]:focus-visible{
+  color: #fff !important;
+  background-color: var(--brand-red) !important;
+  border-color: var(--brand-red) !important;
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   Series pages: Spotify = mismo frame que YouTube (16:9)
+   (selector robusto: cualquier iframe de spotify)
+   ========================================================= */
+
+:root{
+  --anison-embed-max-width: 860px;
+}
+
+body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"],
+body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed/videoseries"],
+body[data-md-url^="series/"] .md-typeset iframe[src*="open.spotify.com"],
+body[data-md-url^="series/"] .md-typeset iframe[src*="spotify.com"]{
+  display: block !important;
+  width: 100% !important;
+  max-width: var(--anison-embed-max-width) !important;
+
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;              /* clave: iguala altura por ratio */
+  min-height: 240px !important;         /* evita que quede “aplastado” */
+
+  margin: 1rem auto !important;
+  border: 0 !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* =========================================================
+   Series pages: Spotify iframe = mismo ratio que YouTube (16:9)
+   (pisa inline aspect-ratio:21/9)
+   ========================================================= */
+
+body[data-md-url^="series/"] .md-typeset iframe[src*="open.spotify.com/embed"]{
+  aspect-ratio: 16 / 9 !important;  /* igual que YouTube */
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border: 0 !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* (Opcional) mismo max-width si tus embeds están centrados */
+body[data-md-url^="series/"] .md-typeset iframe[src*="open.spotify.com/embed"],
+body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"]{
+  max-width: 860px !important;      /* ajusta si quieres */
+  margin: 1rem auto !important;
+}
