@@ -1049,25 +1049,30 @@ body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"]{
   overflow: hidden;
 }
 /* =========================================================
-   A–Z rail (horizontal/vertical): NO azul
-   - Base: hereda color del contenedor (negro en light / blanco en dark)
+   A–Z rail: no usar --md-typeset-a-color (azul del tema)
+   - Base: negro en light, blanco en dark
    - Hover/focus: rojo
+   - Hide rail durante búsqueda (evita tapar resultados)
    ========================================================= */
 
-/* Color base del contenedor según esquema */
-body[data-md-color-scheme="default"] .amc-az-rail { color: #000 !important; }
-body[data-md-color-scheme="slate"]   .amc-az-rail { color: #fff !important; }
+/* Base: redefine el color de links SOLO dentro del rail */
+body[data-md-color-scheme="default"] .amc-az-rail{
+  --md-typeset-a-color: #000 !important;
+}
+body[data-md-color-scheme="slate"] .amc-az-rail{
+  --md-typeset-a-color: #fff !important;
+}
 
-/* Fuerza a los links del rail a usar el color del contenedor */
+/* Aplica el color base a las letras del rail */
 .amc-az-rail a,
 .amc-az-rail a:link,
 .amc-az-rail a:visited{
-  color: currentColor !important;
-  -webkit-text-fill-color: currentColor !important; /* iOS: mata azul */
+  color: var(--md-typeset-a-color) !important;
+  -webkit-text-fill-color: var(--md-typeset-a-color) !important; /* iOS */
   text-decoration: none !important;
 }
 
-/* Hover/Focus/Active del rail */
+/* Hover/focus/active */
 .amc-az-rail a:hover,
 .amc-az-rail a:focus,
 .amc-az-rail a:focus-visible,
@@ -1076,10 +1081,62 @@ body[data-md-color-scheme="slate"]   .amc-az-rail { color: #fff !important; }
   -webkit-text-fill-color: var(--brand-red) !important;
 }
 
-/* =========================================================
-   Cuando el buscador está abierto: ocultar rail (evita que tape resultados)
-   (aplica también a desktop angosto)
-   ========================================================= */
+/* Cuando búsqueda está abierta: ocultar rail (móvil + desktop angosto) */
 body[data-md-state="search"] .amc-az-rail{
   display: none !important;
 }
+
+/* =========================================================
+   FIX FINAL — A–Z (barra horizontal + rail vertical)
+   - Quita azul heredado del tema en .amc-az-chip y .amc-az-rail-link
+   - Evita que tape resultados del buscador (z-index + hide)
+   ========================================================= */
+
+/* 1) Color base por modo (usamos una variable local) */
+:root[data-md-color-scheme="default"] { --amc-az-fg: #000; }
+:root[data-md-color-scheme="slate"]   { --amc-az-fg: #fff; }
+
+/* 2) FORZAR color en los links reales que genera tu JS:
+      - barra horizontal: .amc-az-chip
+      - rail vertical:    .amc-az-rail-link
+   (Estas clases existen en tu az_nav.js) */
+.amc-az-wrap a.amc-az-chip,
+.amc-az-wrap a.amc-az-rail-link,
+.amc-az-wrap a.amc-az-chip:link,
+.amc-az-wrap a.amc-az-rail-link:link,
+.amc-az-wrap a.amc-az-chip:visited,
+.amc-az-wrap a.amc-az-rail-link:visited{
+  color: var(--amc-az-fg) !important;
+  -webkit-text-fill-color: var(--amc-az-fg) !important; /* iOS: mata azul */
+  text-decoration: none !important;
+}
+
+/* Hover/focus/active → rojo */
+.amc-az-wrap a.amc-az-chip:hover,
+.amc-az-wrap a.amc-az-rail-link:hover,
+.amc-az-wrap a.amc-az-chip:focus,
+.amc-az-wrap a.amc-az-rail-link:focus,
+.amc-az-wrap a.amc-az-chip:focus-visible,
+.amc-az-wrap a.amc-az-rail-link:focus-visible,
+.amc-az-wrap a.amc-az-chip:active,
+.amc-az-wrap a.amc-az-rail-link:active{
+  color: var(--brand-red) !important;
+  -webkit-text-fill-color: var(--brand-red) !important;
+}
+
+/* 3) Buscador SIEMPRE por encima del A–Z */
+.md-search,
+.md-search__overlay,
+.md-search__output,
+.md-search__scrollwrap,
+.md-search__inner{
+  z-index: 9999 !important;
+}
+
+/* El A–Z abajo (no tapa resultados) */
+.amc-az-wrap{
+  z-index: 1 !important; /* antes lo tenías en 5 */
+}
+
+/* 4) Cuando el buscador está abierto, ocultar TODO el índice A–Z
+   (tu CSS ya oculta .amc-az-wrap con data-
