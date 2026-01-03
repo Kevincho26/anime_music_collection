@@ -1278,7 +1278,7 @@ body[data-md-state="search"] .amc-az-wrap{
   .md-typeset iframe.anison-embed[src*="open.spotify.com/embed"]{
     aspect-ratio: 16 / 9 !important;
     height: auto !important;
-    min-height: 2800px !important;   /* evita que iOS lo aplaste */
+    min-height: 280px !important;   /* evita que iOS lo aplaste */
     width: 100% !important;
   }
 
