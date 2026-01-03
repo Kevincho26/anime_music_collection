@@ -894,28 +894,36 @@ body[data-md-color-scheme="slate"] .md-typeset h1 {
 }
 
 /* =========================================================
-   Divider vertical entre sidebar izquierdo y contenido
-   (dibujado en el scrollwrap para que SIEMPRE se vea)
+   Divider vertical estable (desktop full)
+   - FIX: usar position:fixed para que no cambie al navegar (instant nav)
    ========================================================= */
 
-@media (min-width: 60em) {
-  .md-sidebar--primary .md-sidebar__scrollwrap{
-    position: relative;
+@media (min-width: 60em){
+
+  /* apaga cualquier divisor viejo */
+  .md-sidebar--primary .md-sidebar__scrollwrap::after{
+    content: none !important;
   }
 
-  .md-sidebar--primary .md-sidebar__scrollwrap::after{
+  .md-sidebar--primary::after{
     content: "";
     position: absolute;
-    right: 80px;          /* justo en el borde del sidebar */
-    top: 1.2rem;       /* no llega hasta arriba */
-    bottom: 1.2rem;    /* no llega hasta abajo */
-    width: 3px;        /* grosor */
+
+    /* misma “separación hacia la izquierda” que tenías */
+    left: calc(var(--md-sidebar-width, 18rem) - 80px);
+
+    /* no llega hasta arriba/abajo */
+    top: calc(var(--md-header-height, 3.2rem) + 2.2rem);
+    height: calc(100vh - var(--md-header-height, 3.2rem) - 2.4rem);
+
+    width: 3px;
     background: var(--brand-red);
     border-radius: 999px;
     pointer-events: none;
     z-index: 5;
   }
 }
+
 
 /* =========================================================
    YouTube buttons (md-button) – Outline normal, Solid on hover
