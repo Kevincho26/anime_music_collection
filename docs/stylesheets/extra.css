@@ -1057,31 +1057,11 @@ body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"]{
   overflow: hidden;
 }
 
-/* =========================================================
-   FIX iOS (móvil): Spotify iframe se recorta con aspect-ratio
-   -> Forzamos altura estable SOLO en pantallas chicas
-   ========================================================= */
-
-@media (max-width: 720px){
-
-  /* Caso general con class anison-embed */
-  .md-typeset iframe.anison-embed[src*="open.spotify.com"]{
-    height: 352px !important;      /* altura “safe” para Spotify */
-    aspect-ratio: auto !important; /* no confiar en iOS */
-  }
-
-  /* Por si hay embeds de Spotify sin la clase (o rules antiguas) */
-  body[data-md-url^="series/"] .md-typeset iframe[src*="open.spotify.com/embed"],
-  body[data-md-url^="series/"] .md-typeset iframe[src*="spotify.com"]{
-    height: 352px !important;
-    aspect-ratio: auto !important;
-  }
-}
 
 /* =========================================================
-   FIX iOS / Mobile ONLY: Spotify con ratio 16:9 (como YouTube)
-   - NO altura fija (evita que quede “cuadrado”)
-   - usamos aspect-ratio + min-height para que iOS no lo aplaste
+   FIX iOS / Mobile ONLY:
+   Spotify en móvil = altura 16:9 (igual que YouTube) con height explícito
+   (Safari iOS falla con aspect-ratio en iframes de Spotify)
    ========================================================= */
 
 @media (max-width: 720px){
@@ -1091,9 +1071,11 @@ body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"]{
     width: 100% !important;
     max-width: var(--anison-embed-max-width, 860px) !important;
 
-    aspect-ratio: 16 / 9 !important;
-    height: auto !important;
-    min-height: 280px !important;  /* si aún se aplasta, sube a 280 */
+    /* clave: usamos height explícito 16:9 */
+    aspect-ratio: auto !important;
+    height: 56.25vw !important;     /* 9/16 = 0.5625 */
+    min-height: 220px !important;   /* evita colapso */
+    max-height: 484px !important;   /* 860 * 9/16 ≈ 484 */
 
     border: 0 !important;
     border-radius: 12px !important;
@@ -1102,12 +1084,12 @@ body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"]{
     margin: 1rem auto !important;
   }
 
-  /* Spotify (fallback sin clase) */
+  /* Fallback Spotify sin clase */
   body .md-typeset iframe[src*="open.spotify.com/embed"]{
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    height: auto !important;
-    min-height: 280px !important;
+    aspect-ratio: auto !important;
+    height: 56.25vw !important;
+    min-height: 220px !important;
+    max-height: 484px !important;
   }
 }
 
