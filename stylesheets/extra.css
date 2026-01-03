@@ -1139,4 +1139,96 @@ body[data-md-state="search"] .amc-az-rail{
 }
 
 /* 4) Cuando el buscador está abierto, ocultar TODO el índice A–Z
-   (tu CSS ya oculta .amc-az-wrap con data-
+   (evita que tape resultados) */
+html[data-md-state="search"] .amc-az-wrap,
+body[data-md-state="search"] .amc-az-wrap{
+  display: none !important;
+}
+
+/* =========================================================
+   Drawer logo (móvil + desktop angosto)
+   Usa el logo del tema (NO usa rutas url())
+   ========================================================= */
+
+/* Desktop ancho: seguimos ocultando el título "Anison" arriba del nav */
+@media (min-width: 60em){
+  .md-sidebar--primary .md-nav--primary > .md-nav__title{
+    display: none !important;
+  }
+}
+
+/* Móvil + desktop angosto: mostrar SOLO el logo encima de Home */
+@media (max-width: 59.99em){
+  /* Re-activar el title del nav (aunque lo tengas oculto globalmente) */
+  .md-sidebar--primary .md-nav--primary > .md-nav__title{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: .85rem 0 .45rem !important;
+    margin: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Ocultar el texto "Anison" */
+  .md-sidebar--primary .md-nav--primary > .md-nav__title .md-nav__ellipsis{
+    display: none !important;
+  }
+
+  /* Centrar el botón del logo */
+  .md-sidebar--primary .md-nav--primary > .md-nav__title .md-nav__button.md-logo{
+    margin: 0 auto !important;
+  }
+
+  /* Tamaño del logo en el drawer */
+  .md-sidebar--primary .md-nav--primary > .md-nav__title .md-nav__button.md-logo img{
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 26px rgba(0,0,0,.12) !important;
+  }
+}
+
+/* =========================================================
+   Desktop full: ocultar scrollbar visible del sidebar
+   (sin romper scroll si algún día lo necesitas)
+   ========================================================= */
+@media (min-width: 60em){
+  .md-sidebar--primary .md-sidebar__scrollwrap{
+    scrollbar-width: none;              /* Firefox */
+  }
+  .md-sidebar--primary .md-sidebar__scrollwrap::-webkit-scrollbar{
+    width: 0 !important;                /* Chrome/Safari/Edge */
+    height: 0 !important;
+  }
+}
+
+/* =========================================================
+   Móvil + desktop angosto: mostrar SOLO el logo arriba de Home
+   usando el logo del tema (no usa url/rutas)
+   ========================================================= */
+@media (max-width: 59.99em){
+  /* si lo tienes oculto globalmente, lo reactivamos solo aquí */
+  .md-sidebar--primary .md-nav--primary > .md-nav__title{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: .85rem 0 .45rem !important;
+    margin: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* ocultar el texto "Anison" y dejar solo el logo */
+  .md-sidebar--primary .md-nav--primary > .md-nav__title .md-nav__ellipsis{
+    display: none !important;
+  }
+
+  /* agrandar el logo en el drawer */
+  .md-sidebar--primary .md-nav--primary > .md-nav__title .md-nav__button.md-logo img{
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 26px rgba(0,0,0,.12) !important;
+  }
+}
