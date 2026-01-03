@@ -1093,7 +1093,7 @@ body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"]{
 
     aspect-ratio: 16 / 9 !important;
     height: auto !important;
-    min-height: 240px !important;  /* si aún se aplasta, sube a 280 */
+    min-height: 280px !important;  /* si aún se aplasta, sube a 280 */
 
     border: 0 !important;
     border-radius: 12px !important;
@@ -1107,7 +1107,7 @@ body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"]{
     width: 100% !important;
     aspect-ratio: 16 / 9 !important;
     height: auto !important;
-    min-height: 240px !important;
+    min-height: 280px !important;
   }
 }
 
