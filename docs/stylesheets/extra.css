@@ -1243,28 +1243,44 @@ body[data-md-state="search"] .amc-az-wrap{
   }
 }
 
-
 /* =========================================================
-   MOBILE ONLY: Igualar altura de embeds (Spotify + YouTube)
-   - Spotify playlist necesita ~352px (si no, se recorta en iOS)
-   - Para consistencia, YouTube usa el mismo alto en móvil
+   MOBILE ONLY (fix real): pisa reglas más específicas de series/
+   - Igualar altura Spotify + YouTube en móvil
    ========================================================= */
-
 @media (max-width: 720px){
 
-  /* Spotify playlist embed */
-  .md-typeset iframe[src*="open.spotify.com/embed"]{
-    width: 100% !important;
+  /* SERIES pages: Spotify (misma especificidad que tu regla de arriba) */
+  body[data-md-url^="series/"] .md-typeset iframe[src*="open.spotify.com"],
+  body[data-md-url^="series/"] .md-typeset iframe[src*="spotify.com"]{
+    aspect-ratio: auto !important;
     height: 352px !important;
     min-height: 352px !important;
-    aspect-ratio: auto !important;
+    max-height: 352px !important;
   }
 
-  /* YouTube playlist/video embed */
-  .md-typeset iframe[src*="youtube.com/embed"]{
-    width: 100% !important;
+  /* SERIES pages: YouTube (misma especificidad que tu regla de arriba) */
+  body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"],
+  body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed/videoseries"]{
+    aspect-ratio: auto !important;
     height: 352px !important;
     min-height: 352px !important;
+    max-height: 352px !important;
+  }
+
+  /* HOME (y cualquier otra página): usando tu clase anison-embed */
+  .md-typeset iframe.anison-embed[src*="open.spotify.com"]{
     aspect-ratio: auto !important;
+    height: 352px !important;
+    min-height: 352px !important;
+    max-height: 352px !important;
+  }
+
+  .md-typeset iframe.anison-embed[src*="youtube.com/embed"]{
+    aspect-ratio: auto !important;
+    height: 352px !important;
+    min-height: 352px !important;
+    max-height: 352px !important;
   }
 }
+
+
