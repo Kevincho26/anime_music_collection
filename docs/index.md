@@ -20,13 +20,7 @@ Usa la caja de busqueda para encontrar rápido una serie o abre el catálogo par
 	</div>
 
 
-    <iframe
-		src="https://open.spotify.com/embed/playlist/26faWsnq9PEzpOImFqkUbz"
-		title="Spotify playlist player"
-		style="width:100%; aspect-ratio:16/9; border:0; border-radius:12px; overflow:hidden; display:block;"
-		allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-		loading="lazy">
-	</iframe>
+    <iframe src="https://open.spotify.com/embed/playlist/26faWsnq9PEzpOImFqkUbz" title="Spotify playlist player" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" class="anison-embed"></iframe>
 
 
    
@@ -35,19 +29,11 @@ Usa la caja de busqueda para encontrar rápido una serie o abre el catálogo par
 		<a class="md-button md-button--primary"
 		href="https://www.youtube.com/playlist?list=PLvZvtO-L5oh7CEvceL5FQg91cHzpOA7pR"
 		target="_blank" rel="noopener">
-		▶ Ver playlist completa en YouTube
+		▶ Abrir playlist en Youtube
 	</a>
 	</div>
 
-	<iframe
-		src="https://www.youtube.com/embed?listType=playlist&list=PLvZvtO-L5oh7CEvceL5FQg91cHzpOA7pR"
-		title="YouTube playlist"
-		style="width:100%; aspect-ratio:16/9; border:0;"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-		referrerpolicy="strict-origin-when-cross-origin"
-		allowfullscreen
-		loading="lazy">
-	</iframe>
+	<iframe src="https://www.youtube.com/embed/videoseries?list=PLvZvtO-L5oh7CEvceL5FQg91cHzpOA7pR&rel=0" title="YouTube playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy" class="anison-embed"></iframe>
 
 	
 	
