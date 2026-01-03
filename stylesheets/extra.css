@@ -1049,88 +1049,37 @@ body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"]{
   overflow: hidden;
 }
 /* =========================================================
-   MOBILE FIXES
-   1) La barra A–Z tapa resultados del buscador (z-index)
-   2) Letras del “rail” A–Z no deben verse azules en móvil
+   A–Z rail (horizontal/vertical): NO azul
+   - Base: hereda color del contenedor (negro en light / blanco en dark)
+   - Hover/focus: rojo
    ========================================================= */
 
-@media (max-width: 59.99em){
+/* Color base del contenedor según esquema */
+body[data-md-color-scheme="default"] .amc-az-rail { color: #000 !important; }
+body[data-md-color-scheme="slate"]   .amc-az-rail { color: #fff !important; }
 
-  /* (1) Asegura que el buscador y su lista SIEMPRE estén por encima */
-  .md-search__overlay,
-  .md-search__output,
-  .md-search__scrollwrap,
-  .md-search__inner{
-    z-index: 5000 !important;
-  }
-
-  /* Baja la prioridad del rail A–Z para que no tape resultados */
-  .amc-az-rail{
-    z-index: 50 !important;
-  }
-
-  /* (2) Colores del rail A–Z (igual que títulos: negro/blanco, hover rojo) */
-  body[data-md-color-scheme="default"] .md-typeset .amc-az-rail a,
-  body[data-md-color-scheme="default"] .md-typeset .amc-az-rail a:link,
-  body[data-md-color-scheme="default"] .md-typeset .amc-az-rail a:visited{
-    color: #000 !important;
-    text-decoration: none !important;
-  }
-
-  body[data-md-color-scheme="slate"] .md-typeset .amc-az-rail a,
-  body[data-md-color-scheme="slate"] .md-typeset .amc-az-rail a:link,
-  body[data-md-color-scheme="slate"] .md-typeset .amc-az-rail a:visited{
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-
-  .md-typeset .amc-az-rail a:hover,
-  .md-typeset .amc-az-rail a:focus,
-  .md-typeset .amc-az-rail a:focus-visible,
-  .md-typeset .amc-az-rail a:active{
-    color: var(--brand-red) !important;
-    text-decoration: underline !important;
-  }
+/* Fuerza a los links del rail a usar el color del contenedor */
+.amc-az-rail a,
+.amc-az-rail a:link,
+.amc-az-rail a:visited{
+  color: currentColor !important;
+  -webkit-text-fill-color: currentColor !important; /* iOS: mata azul */
+  text-decoration: none !important;
 }
+
+/* Hover/Focus/Active del rail */
+.amc-az-rail a:hover,
+.amc-az-rail a:focus,
+.amc-az-rail a:focus-visible,
+.amc-az-rail a:active{
+  color: var(--brand-red) !important;
+  -webkit-text-fill-color: var(--brand-red) !important;
+}
+
 /* =========================================================
-   MOBILE – Catálogo A–Z (barra horizontal)
-   1) Evitar letras azules (usar negro/blanco + hover rojo)
-   2) Cuando búsqueda está abierta: ocultar la barra A–Z
+   Cuando el buscador está abierto: ocultar rail (evita que tape resultados)
+   (aplica también a desktop angosto)
    ========================================================= */
-
-@media (max-width: 59.99em){
-
-  /* 2) Mientras el buscador está abierto, ocultar la barra A–Z
-        (esto evita que tape los resultados) */
-  body[data-md-state="search"] .amc-az-rail,
-  body[data-md-state="search"] .amc-az-rail *{
-    display: none !important;
-  }
-
-  /* 1) Colores de letras del rail A–Z (evitar azul iOS/links) */
-  body[data-md-color-scheme="default"] .amc-az-rail a,
-  body[data-md-color-scheme="default"] .amc-az-rail a:link,
-  body[data-md-color-scheme="default"] .amc-az-rail a:visited{
-    color: #000 !important;
-    -webkit-text-fill-color: #000 !important; /* iOS: mata el azul */
-    text-decoration: none !important;
-  }
-
-  body[data-md-color-scheme="slate"] .amc-az-rail a,
-  body[data-md-color-scheme="slate"] .amc-az-rail a:link,
-  body[data-md-color-scheme="slate"] .amc-az-rail a:visited{
-    color: #fff !important;
-    -webkit-text-fill-color: #fff !important; /* iOS: mata el azul */
-    text-decoration: none !important;
-  }
-
-  /* Hover / focus: rojo */
-  .amc-az-rail a:hover,
-  .amc-az-rail a:focus,
-  .amc-az-rail a:focus-visible,
-  .amc-az-rail a:active{
-    color: var(--brand-red) !important;
-    -webkit-text-fill-color: var(--brand-red) !important;
-    text-decoration: none !important;
-  }
+body[data-md-state="search"] .amc-az-rail{
+  display: none !important;
 }
