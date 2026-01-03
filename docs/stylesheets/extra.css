@@ -1245,36 +1245,26 @@ body[data-md-state="search"] .amc-az-wrap{
 
 
 /* =========================================================
-   FIX iOS / Mobile ONLY:
-   Spotify en móvil = altura 16:9 (igual que YouTube) con height explícito
-   (Safari iOS falla con aspect-ratio en iframes de Spotify)
+   MOBILE ONLY: Igualar altura de embeds (Spotify + YouTube)
+   - Spotify playlist necesita ~352px (si no, se recorta en iOS)
+   - Para consistencia, YouTube usa el mismo alto en móvil
    ========================================================= */
 
 @media (max-width: 720px){
 
-  /* Spotify (con tu clase) */
-  body .md-typeset iframe.anison-embed[src*="open.spotify.com/embed"]{
+  /* Spotify playlist embed */
+  .md-typeset iframe[src*="open.spotify.com/embed"]{
     width: 100% !important;
-    max-width: var(--anison-embed-max-width, 860px) !important;
-
-    /* clave: usamos height explícito 16:9 */
+    height: 352px !important;
+    min-height: 352px !important;
     aspect-ratio: auto !important;
-    height: 56.25vw !important;     /* 9/16 = 0.5625 */
-    min-height: 220px !important;   /* evita colapso */
-    max-height: 484px !important;   /* 860 * 9/16 ≈ 484 */
-
-    border: 0 !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    display: block !important;
-    margin: 1rem auto !important;
   }
 
-  /* Fallback Spotify sin clase */
-  body .md-typeset iframe[src*="open.spotify.com/embed"]{
+  /* YouTube playlist/video embed */
+  .md-typeset iframe[src*="youtube.com/embed"]{
+    width: 100% !important;
+    height: 352px !important;
+    min-height: 352px !important;
     aspect-ratio: auto !important;
-    height: 56.25vw !important;
-    min-height: 220px !important;
-    max-height: 484px !important;
   }
 }
