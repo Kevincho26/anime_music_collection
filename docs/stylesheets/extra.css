@@ -1048,3 +1048,47 @@ body[data-md-url^="series/"] .md-typeset iframe[src*="youtube.com/embed"]{
   border: 0;
   overflow: hidden;
 }
+/* =========================================================
+   MOBILE FIXES
+   1) La barra A–Z tapa resultados del buscador (z-index)
+   2) Letras del “rail” A–Z no deben verse azules en móvil
+   ========================================================= */
+
+@media (max-width: 59.99em){
+
+  /* (1) Asegura que el buscador y su lista SIEMPRE estén por encima */
+  .md-search__overlay,
+  .md-search__output,
+  .md-search__scrollwrap,
+  .md-search__inner{
+    z-index: 5000 !important;
+  }
+
+  /* Baja la prioridad del rail A–Z para que no tape resultados */
+  .amc-az-rail{
+    z-index: 50 !important;
+  }
+
+  /* (2) Colores del rail A–Z (igual que títulos: negro/blanco, hover rojo) */
+  body[data-md-color-scheme="default"] .md-typeset .amc-az-rail a,
+  body[data-md-color-scheme="default"] .md-typeset .amc-az-rail a:link,
+  body[data-md-color-scheme="default"] .md-typeset .amc-az-rail a:visited{
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  body[data-md-color-scheme="slate"] .md-typeset .amc-az-rail a,
+  body[data-md-color-scheme="slate"] .md-typeset .amc-az-rail a:link,
+  body[data-md-color-scheme="slate"] .md-typeset .amc-az-rail a:visited{
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  .md-typeset .amc-az-rail a:hover,
+  .md-typeset .amc-az-rail a:focus,
+  .md-typeset .amc-az-rail a:focus-visible,
+  .md-typeset .amc-az-rail a:active{
+    color: var(--brand-red) !important;
+    text-decoration: underline !important;
+  }
+}
