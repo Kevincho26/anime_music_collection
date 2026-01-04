@@ -1555,3 +1555,40 @@ body[data-md-state="search"] .amc-az-wrap{
 .anison-best-list li{
   padding: .40rem .55rem !important;
 }
+
+/* =========================================================
+   Best songs – Mobile layout: apilar contenido (no colapsar texto)
+   ========================================================= */
+@media (max-width: 720px){
+
+  /* Cambia el grid a 1 columna en móvil */
+  .anison-best-list li{
+    grid-template-columns: 1fr !important;
+    row-gap: .35rem;
+    align-items: start;
+  }
+
+  /* Título ocupa toda la línea */
+  .anison-best-list li > a{
+    display: block;
+    width: 100%;
+  }
+
+  /* Artista debajo y con buen contraste */
+  .anison-best-artist{
+    display: block;
+    opacity: .9;
+  }
+
+  /* Rating + botones en una fila, abajo */
+  .anison-best-right{
+    justify-self: start !important;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Evitar que los botones se salgan */
+  .anison-yt-actions{
+    margin-left: auto;
+  }
+}
