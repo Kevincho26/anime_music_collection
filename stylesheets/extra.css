@@ -1594,18 +1594,61 @@ body[data-md-state="search"] .amc-az-wrap{
 }
 
 /* =========================================================
-   Best songs – Mobile: reducir margen izquierdo (sin centrar)
+   Best songs – Mobile: centrado + header en una línea (o 2 limpias)
    ========================================================= */
 @media (max-width: 720px){
+
   /* Quita sangría típica de listas */
   .anison-best-list{
     padding-left: 0 !important;
     margin-left: 0 !important;
   }
 
-  /* Reduce padding lateral de cada fila */
+  /* Centrar cada item y hacerlo más compacto */
   .anison-best-list li{
-    padding-left: .65rem !important;
-    padding-right: .15rem !important;
+    grid-template-columns: 1fr !important;
+    padding-left: .35rem !important;
+    padding-right: .35rem !important;
+    row-gap: .35rem;
+    text-align: center;
+  }
+
+  .anison-best-list li > a,
+  .anison-best-artist{
+    text-align: center !important;
+  }
+
+  /* Rating + botones centrados */
+  .anison-best-right{
+    width: 100%;
+    justify-content: center !important;
+    gap: .65rem;
+  }
+
+  .anison-yt-actions{
+    margin-left: 0 !important;
+  }
+
+  /* ---------- Header: "Best songs ≥ ★ 3.5" + "(17/60 · Avg ★ 2.9)" ---------- */
+
+  /* Si tu header está dentro de .anison-best-header (lo normal en tu script) */
+  .anison-best-header{
+    display: flex !important;
+    flex-wrap: wrap;                 /* permite 2 líneas si hace falta */
+    justify-content: center !important;
+    align-items: baseline;
+    gap: .5rem .9rem;                /* row-gap / column-gap */
+    text-align: center;
+  }
+
+  /* Evita que se quiebre dentro del texto */
+  .anison-best-header > *{
+    white-space: nowrap;
+  }
+
+  /* (Opcional) baja un poquito el tamaño del header en móvil */
+  .anison-best-header{
+    font-size: .92rem;
   }
 }
+
